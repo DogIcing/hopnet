@@ -1,7 +1,7 @@
 <h1>HopNet</h1>
 <h4>copyright HopNet 2021<h4>
 
-<h2>Q&As</h2>
+<h1>Q&As:</h1>
 
 <h2>Q. What is HopNet?</h2>
 <p>A. HopNet is a database designed and maintained by I, Dog Icing with bios of Hopscotchers around the world</p>
