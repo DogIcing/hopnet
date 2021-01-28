@@ -22,11 +22,25 @@ var search = myText
 </script>
 ​
   
-  [details="Add your bio"]
+​
+<button onclick="myFunction()">Add your bio</button>
+​
+<div id="myDIV">
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeLwKF2LqWXm9gLCPgolSih-Nb_Yg4fyCFJlYK00jgIDCbIoQ/viewform?embedded=true" width="640" height="1293" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-[/details]
-  
-  
+
+</div>
+​
+​
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
 
 
 
