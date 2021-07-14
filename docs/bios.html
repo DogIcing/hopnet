@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+<!-- Start Nav -->
+ <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn"
+onclick="closeNav()">&times;</a>
+  <a href="index.html">Home</a>
+  <a href="addbio.html">Add Your Bio</a>
+  <a href="bios.html">View Bios</a>
+  <a href="about.html">About</a>
+</div>
+<div id="main">
+  <table>
+    <tr>
+      <td width=70% align=center>
+        <img src="assets/images/FCEAE431-9F2C-4F48-8B14-1B100565CA08.png" alt="Hopnet Logo" width="422" height="195">
+      </td>
+      <td width=30% align="right">
+  <span style="font-size:30px;cursor:pointer"
+onclick="openNav()">&#9776; menu</span>
+      </td>
+    </tr>
+  </table>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+} </script>
+  
+<!-- End Nav, Start test section-->  
+
+  <script>
+ function makeRequest(method, url, useProxy, callback) {
+  // Method in your case will always be "GET" (you aren't changing any data on the server)
+  // URL is the URL you are going to retrieve (examples given in previous posts)
+  // UseProxy will default to true since APIs like Hopscotch's are normally restricted to same origin
+  // Callback is a function that will handle the data retrieved from the API
+  
+  // Update the URL to the proxy URL so you can retrieve data without "same origin" restriction
+  if (useProxy) url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url)
+  
+  // Begin a new request
+  let xhr = new XMLHttpRequest();
+  // This defines where the request will be made and its method
+  xhr.open(method, url);
+  // When the request loads OR fails, execute the callback function
+  xhr.onload = xhr.onerror = function() {
+    // Pass in the response text and status
+    callback(xhr.responseText, xhr.status)
+  }
+  // Send the request
+  xhr.send()
+}
+
+// Example Request to load my favorites
+makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/favorite_projects', true, function (response, status) {
+  // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
+  // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
+  // Because of that, we won't deal with status much with this code, so the focus will be on the response
+
+  console.log(response, status) // {<JSON text>} 200
+  console.log('here is the JSON response of my favorites tab')
+  console.log(JSON.parse(response)) // >> Object {}
+  let json_data = JSON.parse(response)
+
+  // Add the first project's UUID to the text of an element with ID 'output'
+  document.getElementById('output').innerText = json_data.projects[0].uuid
+}) 
+  </script>
+  
+</body>
+</html>
