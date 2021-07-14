@@ -14,9 +14,11 @@
 .triangle1 {
     width: window.innerwidth;
     height: 200px;
-    background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #00ffbf 50%, #00ffbf 100%);
+    background: linear-gradient(to bottom right, #fff 0%, #fff 50%, #00ffbf 50%, #00ffbf 100%);
 }
-  
+.background {
+  background-color: #00ffbf;
+}
   
 body {
   font-family: "Lato", sans-serif;
@@ -94,6 +96,8 @@ onclick="openNav()">&#9776; menu</span>
 <div class="triangle1">
 </div>
   
+<div class="background">
+  
   <table>
   <tr>
     <td>
@@ -113,7 +117,8 @@ onclick="openNav()">&#9776; menu</span>
   </tr>
 </table>
   
- 
+  </div>  
+  
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
