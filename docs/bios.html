@@ -111,13 +111,13 @@ function makeRequest(method, url, useProxy, callback) {
 }
 
 // Search Result
-makeRequest('GET', search, true, function (response, status) {
+makeRequest('GET', https://community.gethopscotch.com/api/v2/users/search?nickname=Awesome_E&page=1, true, function (response, status) {
   // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
   // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
   // Because of that, we won't deal with status much with this code, so the focus will be on the response
 
   console.log(response, status) // {<JSON text>} 200
-  console.log('here is the JSON response of my favorites tab')
+  console.log('search result')
   console.log(JSON.parse(response)) // >> Object {}
   let json_data = JSON.parse(response)
 
