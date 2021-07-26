@@ -181,6 +181,8 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/publi
   var projectuuid = json_data.projects[1].uuid
   var project = "c.gethopscotch.com/p/"+projectuuid
   document.getElementById('project').innerText = "c.gethopscotch.com/p/"+json_data.projects[1].uuid
+  var link2 = str.link("c.gethopscotch.com/p/"+projectuuid);
+
 
 }) 
   </script>
@@ -199,7 +201,12 @@ document.getElementById("projectlink").href = project;
 
 <p><a id="projectlink" href="404.html">The Link</a></p>
 
-
+  
+  <p id="projectlink1"></p>
+  <script>
+   var str = "Test!";
+  document.getElementById("projectlink1").innerHTML = link2;
+  </script>
 
   
   
