@@ -82,7 +82,7 @@ onclick="openNav()">&#9776; menu</span>
 </form>
   
   
-  
+  <!--test
   <script>
     
 var search = https://community.gethopscotch.com/api/v2/users/search?nickname=Awesome_E&page=1;  
@@ -125,7 +125,7 @@ makeRequest('GET', https://community.gethopscotch.com/api/v2/users/search?nickna
   document.getElementById('output').innerText = json_data.projects[0].uuid
 })  </script>  
   
-  
+-->
   
 <script>
 function openNav() {
@@ -139,7 +139,7 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 } </script>
   
-<!--test
+
 
   <script>
  function makeRequest(method, url, useProxy, callback) {
@@ -165,7 +165,7 @@ function closeNav() {
 }
 
 // Example Request to load my favorites
-makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/favorite_projects', true, function (response, status) {
+makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickname=Awesome_E&page=1', true, function (response, status) {
   // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
   // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
   // Because of that, we won't deal with status much with this code, so the focus will be on the response
@@ -179,7 +179,6 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/favor
   document.getElementById('output').innerText = json_data.projects[0].uuid
 }) 
   </script>
--->
   
   <h1>test</h1>
   
