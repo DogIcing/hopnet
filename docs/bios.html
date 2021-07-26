@@ -177,12 +177,20 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/publi
 
   // Add the first project's UUID to the text of an element with ID 'output'
   document.getElementById('output').innerText = json_data.projects[0].uuid
+  // test to make a link
+  var projectuuid = json_data.projects[1].uuid
+  var project = "c.gethopscotch.com/p/"+projectuuid
+  document.getElementById('project').innerText = "c.gethopscotch.com/p/"+json_data.projects[1].uuid
+
 }) 
   </script>
   
   <h1>test</h1>
   
   <div id="output"></div>
+  <div id="project"></div>
+  <h1><a id="project">text</a></h1>
+
   
 </body>
 </html>
