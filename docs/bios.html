@@ -194,6 +194,16 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/publi
   <h1><a id="project">text</a></h1>
     <a href="javascript:window.open(project);">link</a>
     <a href=project>link2</a>
+  <script>
+  (function() {
+    var var1 = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid;
+    document.getElementById("linkabc").setAttribute("href",var1);
+})();
+  </script>
+  
+ 
+  <a id="linkabc">
+    <a id="linkabc">linktosomething</a>
 
 <script>
   document.querySelector('a').href = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid;
