@@ -398,6 +398,7 @@ window.onload = function() {
     <input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
     <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" onclick="othername();" />
 </form>
+	  <script>
 
 function othername() {
     var searchnickname = document.getElementById("userInput").value;
@@ -405,7 +406,6 @@ function othername() {
 }  
 	  
 	  
-	  <script>
 	function makeRequest(method, url, useProxy, callback) {
   // Method in your case will always be "GET" (you aren't changing any data on the server)
   // URL is the URL you are going to retrieve (examples given in previous posts)
