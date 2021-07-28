@@ -391,6 +391,68 @@ window.onload = function() {
 <iframe src=iframeproject id=link2>src var</iframe>
 <iframe src=iframeproject id=link3>src var</iframe>
 	  
+/* Web Request */
+	  
+	  
+	<form id="form" onsubmit="return false;">
+    <input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
+    <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" onclick="othername();" />
+</form>
+
+function othername() {
+    var searchnickname = document.getElementById("userInput").value;
+    alert(searchnickname);
+}  
+	  
+	  
+	  <script>
+	function makeRequest(method, url, useProxy, callback) {
+  // Method in your case will always be "GET" (you aren't changing any data on the server)
+  // URL is the URL you are going to retrieve (examples given in previous posts)
+  // UseProxy will default to true since APIs like Hopscotch's are normally restricted to same origin
+  // Callback is a function that will handle the data retrieved from the API
+  
+  // Update the URL to the proxy URL so you can retrieve data without "same origin" restriction
+  if (useProxy) url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url)
+  
+  // Begin a new request
+  let xhr = new XMLHttpRequest();
+  // This defines where the request will be made and its method
+  xhr.open(method, url);
+  // When the request loads OR fails, execute the callback function
+  xhr.onload = xhr.onerror = function() {
+    // Pass in the response text and status
+    callback(xhr.responseText, xhr.status)
+  }
+  // Send the request
+  xhr.send()
+}
+		  
+// Request to load search result
+makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickname='+searchnickname+'&page=1', true, function (response, status) {
+  // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
+  // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
+  // Because of that, we won't deal with status much with this code, so the focus will be on the response
+
+  console.log(response, status) // {<JSON text>} 200
+  console.log('here is the JSON response of my favorites tab')
+  console.log(JSON.parse(response)) // >> Object {}
+  let json_data = JSON.parse(response)
+
+  // Add the first project's UUID to the text of an element with ID 'useroutput'
+  document.getElementById('useroutput').innerText = json_data.users[0].uuid
+})
+document.getElementById('useroutput').innerText = json_data.users[0].uuid`
+
+	  </script>	  
+<!-- This will be in your HTML somewhere -->
+<div id="useroutput"></div>	  
+	  
+/* Web Request */
+	
+	
+	  
+	  
   
 </body>
 </html>
