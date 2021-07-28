@@ -20,29 +20,7 @@ function makeRequest(method, url, useProxy, callback) {
   xhr.open(method, url);
   // When the request loads OR fails, execute the callback function
   xhr.onload = xhr.onerror = function() {
-    // Pass in the response text and status
-    callback(xhr.responseText, xhr.status)
-  }
-  // Send the request
-  xhr.send()
-}
 
-// Example Request to load my users
-makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickname=Awesome_E&page=1', true, function (response, status) {
-  // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
-  // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
-  // Because of that, we won't deal with status much with this code, so the focus will be on the response
-
-  console.log(response, status) // {<JSON text>} 200
-  console.log('here is the JSON response of my favorites tab')
-  console.log(JSON.parse(response)) // >> Object {}
-  let json_data = JSON.parse(response)
-
-  // Add the first project's UUID to the text of an element with ID 'output'
-  document.getElementById('output').innerText = json_data[0].uuid
-})
-  </script>
-  <div id="output"></div>
   <script>
  function makeRequest(method, url, useProxy, callback) {
   // Method in your case will always be "GET" (you aren't changing any data on the server)
