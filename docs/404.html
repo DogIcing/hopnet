@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="assets/css/404.css">
+  </head>
 <body>
-​
-<h2>Get the current URL</h2>
-​
-<p id="demo"></p>
-​
+
+<h1 align=center>404</h1>
+<h3 align=center>Oh No! We can’t seem to find that page!</h3>
+
 <script>
 document.getElementById("demo").innerHTML = 
-"The full URL of this page is:<br>" + window.location.href;
+"You’re Currently On: " + window.location.href;
 </script>
+
+<p id="demo"></p>
+
+<h1>You Can: </h1> 
+<a href="index.html"><button class=“button” align=center>Go To Home</button></a>
+ 
+  <h1 align=center><span class="or">Or<span></h1>
+    
+<div class="dropdown">
+  <button class="dropbtn" align=center>Visit Another Page</button>
+  <div class="dropdown-content">
+    <a href="index.html">Home</a>
+    <a href="bios.html">Search For Bios</a>
+    <a href="addbio.html">Add Your Bio</a>
+    <a href="about.html">About Hopnet</a>
+  </div>
+</div>
 ​
+
 </body>
 </html>
 ​
