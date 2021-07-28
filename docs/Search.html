@@ -39,7 +39,7 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickn
   let json_data = JSON.parse(response)
 
   // Add the first project's UUID to the text of an element with ID 'output'
-  document.getElementById('output').innerText = json_data.projects[0].uuid
+  document.getElementById('output').innerText = json_data[0].uuid
 })
   </script>
   <div id="output"></div>
