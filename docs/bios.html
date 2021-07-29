@@ -73,7 +73,7 @@ onclick="openNav()">&#9776; menu</span>
   </div>
   
   
-<--Search--!>	
+<!--Search-->	
    
 <form>
   <label for="searchedtext">Search</label>
@@ -81,7 +81,7 @@ onclick="openNav()">&#9776; menu</span>
   <input type="submit" value="Search">
 </form>
 
-<--Hamburger Menu--!>	
+<!--Hamburger Menu-->	
 	
 <script>
 function openNav() {
@@ -95,7 +95,7 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 } </script>
   
-<--Retrieve Published Project UUID Array (working)--!>	
+<!--Retrieve Published Project UUID Array (working)-->	
 
   <script>
  function makeRequest(method, url, useProxy, callback) {
@@ -143,7 +143,7 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/publi
 }) 
   </script>
   
-<--Display UUID tests--!>	
+<!--Display UUID tests-->	
 		
   <h1>test</h1>
   
@@ -225,43 +225,14 @@ window.onload = function() {
 <iframe src=iframeproject id=link2>src var</iframe>
 <iframe src=iframeproject id=link3>src var</iframe>
 	  
-<-- search result --!>	  
+<!-- search result -->	  
 	  
 	<form id="form" onsubmit="return false;">
     <input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
     <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" onclick="othername();" />
 </form>
-	  <script>
-
-function othername() {
-    var searchnickname = document.getElementById("userInput").value;
-    alert(searchnickname);
-}  
-	  
-	  
-	function makeRequest(method, url, useProxy, callback) {
-  // Method in your case will always be "GET" (you aren't changing any data on the server)
-  // URL is the URL you are going to retrieve (examples given in previous posts)
-  // UseProxy will default to true since APIs like Hopscotch's are normally restricted to same origin
-  // Callback is a function that will handle the data retrieved from the API
-  
-  // Update the URL to the proxy URL so you can retrieve data without "same origin" restriction
-  if (useProxy) url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url)
-  
-  // Begin a new request
-  let xhr = new XMLHttpRequest();
-  // This defines where the request will be made and its method
-  xhr.open(method, url);
-  // When the request loads OR fails, execute the callback function
-  xhr.onload = xhr.onerror = function() {
-    // Pass in the response text and status
-    callback(xhr.responseText, xhr.status)
-  }
-  // Send the request
-  xhr.send()
-}
-		  
-// Request to load search result
+	<script>
+	// Request to load search result
 makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickname='+searchnickname+'&page=1', true, function (response, status) {
   // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
   // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
@@ -272,16 +243,27 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickn
   console.log(JSON.parse(response)) // >> Object {}
   let json_data = JSON.parse(response)
 
+// you can access json_data anywhere INSIDE THIS function
+  json_data.projects.forEach(project => {
+    //NOTE: DO NOT RUN THIS DIRECTLY AS THIS WILL ADD 30 IFRAMES
+    //WHEN THE REQUEST IS DONE. CHANGE THIS TO WHAT YOU NEED
+    // create an iframe
+    let frame = document.createElement('iframe')
+    // iframe src /e/ for embed, not /p/
+    frame.src = "https://c.gethopscotch.com/e/"+project.uuid
+    // add to body
+    document.body.appendChild(frame)
+  })
+
   // Add the first project's UUID to the text of an element with ID 'useroutput'
   document.getElementById('useroutput').innerText = json_data.users[0].uuid
 })
 document.getElementById('useroutput').innerText = json_data.users[0].uuid`
-
 	  </script>	  
 <!-- This will be in your HTML somewhere -->
 <div id="useroutput"></div>	  
 	  
-<-- End Search Result --!>
+<!-- End Search Result -->
 	
 	
 	  
