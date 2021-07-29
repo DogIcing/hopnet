@@ -232,6 +232,7 @@ window.onload = function() {
 
 
 	<script>		
+	
 		
 	// Request to load search result
 makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/published_projects?api_token=4f7769439adf7ef8e482d2daef77375cd6d0158b65fcdca543b74b5c0c92&user%5Bauth_token%5D=qKok4lCx8YB9Wgp%2Bo862AA%3D%3D&user%5Bid%5D=4753230', true, function (response, status) {
@@ -255,7 +256,13 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
     // add to body
     document.body.appendChild(imagePreview)
   })
-
+    let projectlink = document.createElement('projectlink')
+    // iframe src /e/ for embed, not /p/
+    projectlink.href = "https://c.gethopscotch.com/e/"+project.uuid
+    // add to body
+    document.body.appendChild(projectlink)
+  })
+		
   // Add the first project's UUID to the text of an element with ID 'useroutput'
   document.getElementById('useroutput').innerText = json_data.users[0].uuid
 })
