@@ -229,8 +229,9 @@ window.onload = function() {
 	  
 	<form id="form" onsubmit="return false;">
     <input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
-    <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" onclick="othername();" />
+    <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" value="Search" />
 </form>
+
 	<script>
 	// Request to load search result
 makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/search?nickname='+searchnickname+'&page=1', true, function (response, status) {
