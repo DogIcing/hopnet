@@ -270,6 +270,7 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
     let projectlink = document.createElement('a')
     projectlink.href = "https://c.gethopscotch.com/e/"+project.uuid
     // add to body
+    a.innerText = projectlink.href
     document.body.appendChild(projectlink)
   })
 		
