@@ -1,0 +1,2 @@
+BioUsernames = ["User 1","User2"]
+Bios = ["Hi! I'm user 1","Hi! I'm user 2!"]
