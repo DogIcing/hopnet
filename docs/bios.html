@@ -222,7 +222,31 @@ window.onload = function() {
     <input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
     <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" value="Search" />
 </form>
-	
+	  <!-- display user info -->
+	  <script>
+	  makeRequest('GET', 'https://c.gethopscotch.com/api/v2/users/452673', true, function (response, status) {
+  // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
+  // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
+  // Because of that, we won't deal with status much with this code, so the focus will be on the response
+
+  console.log(response, status) // {<JSON text>} 200
+  console.log('user info')
+  console.log(JSON.parse(response)) // >> Object {}
+  let json_data = JSON.parse(response)
+
+  // Get avatar number
+	  if (json_data.projects[1] == '"badges":{"top_planter":false}' || json_data.projects[1] == '"badges":{"top_planter":true}') {
+            var avatarnumber = json_data.projects[1].avatar
+            document.getElementById('avataroutput').src = "https://awesome-e.github.io/hs-tools/images/webavatars/" + avatarnumber.substring(14, avatarnumber.length) + ".png"
+}
+	  else {
+	    var avatarurl = json_data.projects[5]
+	    var avatarurllen = avatarurl.length
+	    document.getElementById('avataroutput').src = avatarurl.substring(20, avatarurllen)
+}
+})
+	  </script>
+	  <p id = "avataroutput"></p>
 <!-- display projects -->
 	  
 	  
