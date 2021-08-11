@@ -258,16 +258,7 @@ window.onload = function() {
 
 
 	<script>		
-//get username/nickname
-makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483', true, function (response, status) {
-  console.log('here is the JSON response of the username')
-  let json_data2 = JSON.parse(response)
-  document.getElementById('outputusername').innerText = json_data2.usernames[0].uuid
-}) 		
-	  </script>
-	  <h1 id=outputusername></h1>
-	  <script>
-		
+
 	// Request to load search result
 makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/published_projects?api_token=4f7769439adf7ef8e482d2daef77375cd6d0158b65fcdca543b74b5c0c92&user%5Bauth_token%5D=qKok4lCx8YB9Wgp%2Bo862AA%3D%3D&user%5Bid%5D=4753230', true, function (response, status) {
   // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
@@ -275,7 +266,7 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
   // Because of that, we won't deal with status much with this code, so the focus will be on the response
 
   console.log(response, status) // {<JSON text>} 200
-  console.log('here is the JSON response of my favorites tab')
+  console.log('here is the JSON response of the projects tab')
   console.log(JSON.parse(response)) // >> Object {}
   let json_data = JSON.parse(response)
 
@@ -288,16 +279,9 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
     // add to body
 	  let imagePreview = document.createElement('img')
     // iframe src /e/ for embed, not /p/
-    // imagePreview.src = "https://c.gethopscotch.com/e/"+project.uuid
-    // imagePreview.src = "https://s3.amazonaws.com/hopscotch-cover-images/production/"+project.uuid+".png"
     imagePreview.src = project.screenshot_url
    let imagePreview.href = "https://c.gethopscotch.com/e/"+project.uuid
     // add to body
-	  //imagePreview.onclick = "window.open(explore.gethopscotch.com.src)"
-    imagePreview.innerText = project.href
-  //  document.body.appendChild(imagePreview)
-
-let imagePreview = document.createElement('img')
     // iframe src /e/ for embed, not /p/
     imagePreview.src = "https://s3.amazonaws.com/hopscotch-cover-images/production/"+project.uuid+".png"
     // add to body
@@ -310,6 +294,9 @@ let imagePreview = document.createElement('img')
 	  
 };
 
+
+
+  })
 
 
   })
