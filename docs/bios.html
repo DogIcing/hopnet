@@ -274,7 +274,7 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
   json_data.projects.forEach(project => {
     //NOTE: DO NOT RUN THIS DIRECTLY AS THIS WILL ADD 30 IFRAMES
     //WHEN THE REQUEST IS DONE. CHANGE THIS TO WHAT YOU NEED
-    // create an iframe
+    // create an img
 let projectlink = document.createElement('a')
     projectlink.href = "https://c.gethopscotch.com/e/"+project.uuid
     // add to body
@@ -284,8 +284,8 @@ let projectlink = document.createElement('a')
    // let imagePreview.href = "https://c.gethopscotch.com/e/"+project.uuid
     // add to body
     // iframe src /e/ for embed, not /p/
-    imagePreview.src = "https://s3.amazonaws.com/hopscotch-cover-images/production/"+project.uuid+".png"
-	  	  projectlink.innerText = "project link"
+    imagePreview.src = <a href="c.gethopscotch.com/e/"+json_data><img "https://s3.amazonaws.com/hopscotch-cover-images/production/"+project.uuid+".png" alt="404"></a>
+	  	  //projectlink.innerText = "project link"
 
     // add to body
     document.body.appendChild(imagePreview)
