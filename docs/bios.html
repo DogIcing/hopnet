@@ -275,21 +275,11 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
     //NOTE: DO NOT RUN THIS DIRECTLY AS THIS WILL ADD 30 IFRAMES
     //WHEN THE REQUEST IS DONE. CHANGE THIS TO WHAT YOU NEED
     // create an img
-let projectlink = document.createElement('a')
-    projectlink.href = "https://c.gethopscotch.com/e/"+project.uuid
-    // add to body
-	  let imagePreview = document.createElement('img')
-    // iframe src /e/ for embed, not /p/
-    imagePreview.src = project.screenshot_url
-   // let imagePreview.href = "https://c.gethopscotch.com/e/"+project.uuid
-    // add to body
-    // iframe src /e/ for embed, not /p/
-    imagePreview.src = <a href="c.gethopscotch.com/e/"+json_data><img "https://s3.amazonaws.com/hopscotch-cover-images/production/"+project.uuid+".png" alt="404"></a>
-	  	  //projectlink.innerText = "project link"
-
-    // add to body
-    document.body.appendChild(imagePreview)
-  })
+   document.getElementById('foofoofoo').innerHTML =
+    '<a href="https://c.gethopscotch.com/e/' + json_data +
+    '">' +
+    '<img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' +
+    json_data + '.png"/></a>';
 
   // Add the first project's UUID to the text of an element with ID 'useroutput'
   document.getElementById('useroutput').innerText = json_data.users[0].uuid
@@ -299,15 +289,11 @@ let projectlink = document.createElement('a')
 
    
   
-    
-		
-  // Add the first project's UUID to the text of an element with ID 'useroutput'
-  document.getElementById('useroutput').innerText = json_data.users[0].uuid
-
+   
 	  </script>	  
 <!-- This will be in your HTML somewhere -->
 <div id="useroutput"></div>	  
-	  
+	  <div id="foofoofoo"></div>	  
 <!-- End Search Result -->
 	
 	
