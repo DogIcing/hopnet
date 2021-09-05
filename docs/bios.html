@@ -129,99 +129,17 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/452673/publi
   console.log(response, status) // {<JSON text>} 200
   console.log('here is the JSON response of my favorites tab')
   console.log(JSON.parse(response)) // >> Object {}
-  let json_data = JSON.parse(response)
+  let json_data1 = JSON.parse(response)
 
   // Add the first project's UUID to the text of an element with ID 'output'
-  document.getElementById('output').innerText = json_data.projects[0].uuid
+  document.getElementById('output').innerText = json_data1.projects[0].uuid
   // test to make a link
-  var projectuuid = json_data.projects[1].uuid
+  var projectuuid = json_data1.projects[1].uuid
   var project = "c.gethopscotch.com/p/"+projectuuid
-  document.getElementById('project').innerText = "c.gethopscotch.com/p/"+json_data.projects[1].uuid
-  var link2 = str.link("c.gethopscotch.com/p/"+projectuuid);
-  var link3 = "c.gethopscotch.com/p/"+json_data.projects[1].uuid;
-
+  document.getElementById('project').innerText = "c.gethopscotch.com/p/"+json_data1.projects[1].uuid
 }) 
   </script>
-  
-<!--Display UUID tests-->	
-		
-  <h1>test</h1>
-  
-  <div id="output"></div>
-  <div id="project"></div>
-  <h1><a id="project">text</a></h1>
-    <a href="javascript:window.open(project);">link</a>
-    <a href=project>link2</a>
-  <script>
-  (function() {
-    var var1 = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid;
-    document.getElementById("linkabc").setAttribute("href",var1);
-})();
-  </script>
-  
- 
-  <a id="linkabc">
-    <a id="linkabc">linktosomething</a>
 
-<script>
-  document.querySelector('a').href = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid;
-  let linklink = document.getElementById('link');
-  let linklinklink = document.querySelectorAll('.link') = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid; 
-  </script>
-
-<p><a id="projectlink" href="404.html">The Link</a></p>
-
-  
-  <p id="projectlink1"></p>
-  <script>
-   var str = "Test!";
-  document.getElementById("projectlink1").innerHTML = link2;
-  </script>
-
-  
-     
-  <p>Link to</p>
-        <script>
-            document.write('<a href="' + project + '">Link 3</a>');
-        </script>
-  <a href= var(link3)>this should work</a>
-  
-  <a href=finallink>LINK</a>
-  <a href=a.href>LINK</a>
-  <a class="link" href=finallink>LINK</a>
-  
-  
-  <script language="javascript" type="text/javascript">
-var ranoutofvarnames = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid; 
-</script>
-<a onclick="location.href=this.href+'?key='+ranoutofvarnames;return false;">TheLink</a>
-<a href=ranoutofvarnames onclick="location.href=this.href+'?key='+ranoutofvarnames;return false;">TheLinkLink</a>
-
-	  
-<script>
-	document.getElementById("iframe_id").contentWindow.location.href
-function myFunction() {
-  document.getElementById("TheFinalFinalLink").src = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid;
-}
-</script>  
-	  
-  
-	  
-<script>	  
-window.onload = function() {
-  var total = 4;
-  document.getElementById('iframeproject').src = "https://c.gethopscotch.com/p/"+json_data.projects[1].uuid;
-
-};	  
-	  </script>
-	  
-	
-	  	  
-	<form>
-    <label>Search</label>
-    <input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
-    <input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" value="Search" />
-</form>
 	  <!-- display user info -->
 	  <script>
 	  makeRequest('GET', 'https://c.gethopscotch.com/api/v2/users/452673', true, function (response, status) {
@@ -232,15 +150,15 @@ window.onload = function() {
   console.log(response, status) // {<JSON text>} 200
   console.log('user info')
   console.log(JSON.parse(response)) // >> Object {}
-  let json_data = JSON.parse(response)
+  let json_data2 = JSON.parse(response)
 
   // Get avatar number
-	  if (json_data.projects[1] == '"badges":{"top_planter":false}' || json_data.projects[1] == '"badges":{"top_planter":true}') {
-            var avatarnumber = json_data.projects[1].avatar
+	  if (json_data2.projects[1] == '"badges":{"top_planter":false}' || json_data2.projects[1] == '"badges":{"top_planter":true}') {
+            var avatarnumber = json_data2.projects[1].avatar
             document.getElementById('avataroutput').src = "https://awesome-e.github.io/hs-tools/images/webavatars/" + avatarnumber.substring(14, avatarnumber.length) + ".png"
 }
 	  else {
-	    var avatarurl = json_data.projects[5]
+	    var avatarurl = json_data2.projects[5]
 	    var avatarurllen = avatarurl.length
 	    document.getElementById('avataroutput').src = avatarurl.substring(20, avatarurllen)
 }
@@ -271,16 +189,17 @@ makeRequest('GET', 'https://community.gethopscotch.com/api/v2/users/2112483/publ
   let json_data = JSON.parse(response)
 
 // you can access json_data anywhere INSIDE THIS function
+  var repeat_index = 0
+  var projectdata = null
   json_data.projects.forEach(project => {
     //NOTE: DO NOT RUN THIS DIRECTLY AS THIS WILL ADD 30 IFRAMES
     //WHEN THE REQUEST IS DONE. CHANGE THIS TO WHAT YOU NEED
     // create an img
-   var project_uuid = json_data.users[0].uuid
-   var projectdata = '<a href="https://c.gethopscotch.com/e/' + project_uuid + '">' + '<img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' + project_uuid + '.png"/></a>';
-   document.getElementById('foofoofoo').innerHTML = projectdata
 	  
-  // Add the first project's UUID to the text of an element with ID 'useroutput'
-  document.getElementById('useroutput').innerText = json_data.users[0].uuid
+   var project_uuid = json_data.users[repeat_index].uuid
+   projectdata += '<a href="https://c.gethopscotch.com/e/' + project_uuid + '">' + '<img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' + project_uuid + '.png"/></a>';
+   document.getElementById('foofoofoo').innerHTML = projectdata	  	  
+  repeat_index += 1
 })	  
 	  
 
