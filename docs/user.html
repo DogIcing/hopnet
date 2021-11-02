@@ -8,7 +8,6 @@
   <script>
    let searchParams = new URLSearchParams(location.search);
    var userid = searchParams.get('id');
-   console.log(userid);
    document.write(userid);
    document.getElementById("myFrame").src = 'https://dogicing.github.io/hopnet/userprojects.html?id=' + 2112483;
    var userid = 2112483;
@@ -39,9 +38,7 @@
    
    // Example Request to load my favorites
    makeRequest('GET',
-    'https://c.gethopscotch.com/api/v2/users/' +
-    userid,
-    true,
+    'https://c.gethopscotch.com/api/v2/users/' + userid, true,
     function(response, status) {
      // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
      // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
