@@ -8,6 +8,7 @@
   <script>
    let searchParams = new URLSearchParams(location.search);
    var userid = searchParams.get('id');
+   console.log(userid)
    document.getElementById("myFrame").src = 'https://dogicing.github.io/hopnet/userprojects.html?id=' + userid;
    
    function makeRequest(method, url, useProxy,
