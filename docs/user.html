@@ -6,7 +6,8 @@
  <body>
   
   <script>
-   var userid = 2112483;
+   let searchParams = new URLSearchParams(location.search);
+   var userid = searchParams.get('id');
    
    function makeRequest(method, url, useProxy,
     callback) {
