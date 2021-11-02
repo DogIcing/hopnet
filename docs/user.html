@@ -8,9 +8,10 @@
   <script>
    let searchParams = new URLSearchParams(location.search);
    var userid = searchParams.get('id');
-   console.log(userid)
-   document.getElementById("myFrame").src = 'https://dogicing.github.io/hopnet/userprojects.html?id=' + userid;
-   
+   console.log(userid);
+   document.write(userid);
+   document.getElementById("myFrame").src = 'https://dogicing.github.io/hopnet/userprojects.html?id=' + 2112483;
+   var userid = 2112483;
    function makeRequest(method, url, useProxy,
     callback) {
     // Method in your case will always be "GET" (you aren't changing any data on the server)
