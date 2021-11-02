@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+  <script>
+   function makeRequest(method, url, useProxy,
+    callback) {
+    // Method in your case will always be "GET" (you aren't changing any data on the server)
+    // URL is the URL you are going to retrieve (examples given in previous posts)
+    // UseProxy will default to true since APIs like Hopscotch's are normally restricted to same origin
+    // Callback is a function that will handle the data retrieved from the API
+    
+    // Update the URL to the proxy URL so you can retrieve data without "same origin" restriction
+    if (useProxy) url =
+     'https://api.allorigins.win/raw?url=' +
+     encodeURIComponent(url)
+    
+    // Begin a new request
+    let xhr = new XMLHttpRequest();
+    // This defines where the request will be made and its method
+    xhr.open(method, url);
+    // When the request loads OR fails, execute the callback function
+    xhr.onload = xhr.onerror = function() {
+     // Pass in the response text and status
+     callback(xhr.responseText, xhr.status)
+    }
+    // Send the request
+    xhr.send()
+   }
+   
+   // Example Request to load my favorites
+   makeRequest('GET',
+    'https://community.gethopscotch.com/api/v2/users/2112483/favorite_projects',
+    true,
+    function(response, status) {
+     // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
+     // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
+     // Because of that, we won't deal with status much with this code, so the focus will be on the response
+     
+     console.log(response, status) // {<JSON text>} 200
+     console.log(
+      'here is the JSON response of my favorites tab')
+     console.log(JSON.parse(response)) // >> Object {}
+     let json_data = JSON.parse(response)
+     json_data.projects.forEach(myFunction)
+     // Add the first project's UUID to the text of an element with ID 'output'
+     
+     function myFunction(item, index) {
+      if (index == 0) {
+       if (index == 0) {
+        document.write(
+         '<table style="margin-left: auto; margin-right: auto;"><tr>'
+        )
+       }
+       if (index == json_data.projects.length) {
+        document.write("</table>")
+       }
+      }
+      if (index % 3 == 0) {
+       document.write("</tr><tr>")
+      }
+      const date = new Date(json_data.projects[index]
+       .correct_published_at);
+      document.write(
+       '<td><div style="border-radius:25px;background:#d3d3d3;padding:20px;width:350px;height:500;"><img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' +
+       json_data.projects[index].uuid +
+       '.png" alt="404" width="290px" style="display: block;margin-left: auto;margin-right: auto;"><div style="display: flex; justify-content: space-between;"><img src="https://i.ibb.co/C9G2RHT/2-B1-E2-D75-0984-4438-AD72-2-FB37-BF05-B68-removebg-preview.png" style="flex-basis: 10%;" width="50px" height="50px"><h3 style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px;">' +
+       json_data.projects[index].number_of_stars +
+       '</h3><img src="https://github.com/google/material-design-icons/blob/master/png/content/link/materialicons/48dp/2x/baseline_link_black_48dp.png?raw=true" style="flex-basis: 10%; padding-right: 30px;" width="50" height="50"><h2 style="flex-basis: 79%; font-family: arial, helvetica;">' +
+       json_data.projects[index].user.nickname +
+       '</h2></div><div style="display: flex; justify-content: space-between;"><img src="https://i.ibb.co/nQphh83/3-ECED8-EA-4-B1-C-4125-B6-C5-B2792-C3-D8-DE0-removebg-preview.png" style="flex-basis: 10%;" width="50px" height="50px"><h3 style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px;">' +
+       json_data.projects[index].plants +
+       '</h3><p style="flex-basis: 89%; font-family: arial, helvetica; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' +
+       json_data.projects[index].title +
+       '</p></div><div style="display: flex; justify-content: space-between;"> <img src="https://github.com/google/material-design-icons/blob/master/png/av/play_arrow/materialiconsoutlined/48dp/2x/outline_play_arrow_black_48dp.png?raw=true" style="flex-basis: 5%; padding-top:5px;" width="20" height="20"><p style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px; margin-top: 5px;">' +
+       json_data.projects[index].play_count +
+       '</p> <div style="flex-basis: 70%;"></div> <img src="https://github.com/google/material-design-icons/blob/master/png/action/history/materialicons/48dp/2x/baseline_history_black_48dp.png?raw=true" style="flex-basis: 5%; padding-top:5px;" width="20" height="20"><p style="flex-basis: 10%; font-size: 10px; font-family:helvetica,arial; padding-right:20px; margin-top: 5px;">' +
+       date.toDateString() + '</p></div></div></td>'
+      )
+     }
+    })
+  </script>
+  <div id="output"></div>
+ </body>
+</html>
