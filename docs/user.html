@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+  
+  <script>
+   var userid = 2112483;
+   
+   function makeRequest(method, url, useProxy,
+    callback) {
+    // Method in your case will always be "GET" (you aren't changing any data on the server)
+    // URL is the URL you are going to retrieve (examples given in previous posts)
+    // UseProxy will default to true since APIs like Hopscotch's are normally restricted to same origin
+    // Callback is a function that will handle the data retrieved from the API
+    
+    // Update the URL to the proxy URL so you can retrieve data without "same origin" restriction
+    if (useProxy) url =
+     'https://api.allorigins.win/raw?url=' +
+     encodeURIComponent(url)
+    
+    // Begin a new request
+    let xhr = new XMLHttpRequest();
+    // This defines where the request will be made and its method
+    xhr.open(method, url);
+    // When the request loads OR fails, execute the callback function
+    xhr.onload = xhr.onerror = function() {
+     // Pass in the response text and status
+     callback(xhr.responseText, xhr.status)
+    }
+    // Send the request
+    xhr.send()
+   }
+   
+   // Example Request to load my favorites
+   makeRequest('GET',
+    'https://c.gethopscotch.com/api/v2/users/' +
+    userid,
+    true,
+    function(response, status) {
+     // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
+     // Only caveat is that the proxy (all origins) will always return 200 unless their server is down
+     // Because of that, we won't deal with status much with this code, so the focus will be on the response
+     
+     console.log(response, status) // {<JSON text>} 200
+     console.log(
+      'here is the JSON response of my favorites tab')
+     document.getElementById("username").innerHTML =
+      JSON.parse(response).nickname;
+     
+     if (JSON.parse(response).remote_avatar_url ==
+      undefined) {
+      document.getElementById("pfp").src =
+       "https://awesome-e.github.io/hs-tools/images/webavatars/" +
+       JSON.parse(response).avatar_type + ".png";
+     } else {
+      document.getElementById("pfp").src = JSON.parse(
+       response).remote_avatar_url;
+     }
+     const inappbioholders = [2112483, 2809002]
+     const joinedAt = new Date(JSON.parse(response)
+      .created_at);
+     document.getElementById("joined").innerHTML =
+      "Joined " + joinedAt.toDateString();
+     var topplanter = document.getElementById(
+      "topplanter");
+     var inappbio = document.getElementById(
+      "inappbioholder");
+     if (JSON.parse(response).badges.top_planter ==
+      true) {
+      topplanter.style.visibility = 'visible';
+     }
+     if (inappbioholders.includes(userid) == true) {
+      inappbio.style.visibility = 'visible';
+     }
+    })
+  </script>
+  <div style="background-color: #ffcc00;">
+   <img src="" id="pfp"
+    alt="oops there is no profile pic!"
+    style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px;"
+    width="15%" height="15%">
+   <table style="width:100%; text-align:center;">
+    <colgroup>
+     <col span="1" style="width: 15%;">
+     <col span="1" style="width: 70%;">
+     <col span="1" style="width: 15%;">
+    </colgroup>
+    <tr>
+     <td>
+      <img
+       src="https://i.ibb.co/pzJBQYD/C45508-DA-D746-4389-B17-C-6092-A4-AC0-F43.png"
+       alt="top planter" style="visibility:hidden;"
+       id="topplanter" width="100px" height="100px">
+     </td>
+     <td>
+      <h1 id="username"
+       style="text-align:center; font-family:helvetica,arial; font-size:40px;">
+      </h1>
+     </td>
+     <td>
+      <img
+       src="https://i.ibb.co/7Cmd9t1/68708-B0-C-5-A6-F-4-C43-B298-A42-E76-BCDEAC.png"
+       alt="app bio holder" style="visibility:hidden;"
+       id="inappbioholder" width="100px" height="100px">
+     </td>
+    </tr>
+   </table>
+   <p id="joined"
+    style="text-align:center; font-family:helvetica,arial; font-size:14px;">
+   </p>
+  </div>
+  <iframe src="https://0w0i4i.mimo.run/index.html" width="1080px">
+   Browser Not Competible
+  </iframe>
+ </body>
+</html>
