@@ -5,6 +5,8 @@
  </head>
  <body>
   <script>
+   let searchParams = new URLSearchParams(location.search);
+   var userid = searchParams.get('id');
    function makeRequest(method, url, useProxy,
     callback) {
     // Method in your case will always be "GET" (you aren't changing any data on the server)
@@ -30,9 +32,9 @@
     xhr.send()
    }
    
-   // Example Request to load my favorites
+   // Example Request to load my favorite
    makeRequest('GET',
-    'https://community.gethopscotch.com/api/v2/users/2112483/favorite_projects',
+    'https://community.gethopscotch.com/api/v2/users/' + userid + '/favorite_projects',
     true,
     function(response, status) {
      // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
