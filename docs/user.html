@@ -4,6 +4,7 @@
   <title></title>
  </head>
  <body>
+  
   <script>
    var userid = 2112483;
    
@@ -34,8 +35,8 @@
    
    // Example Request to load my favorites
    makeRequest('GET',
-    'https://community.gethopscotch.com/api/v2/users/' +
-    userid + '/favorite_projects',
+    'https://c.gethopscotch.com/api/v2/users/' +
+    userid,
     true,
     function(response, status) {
      // Our makeRequest function will run this function you passed in with the response text and request status code (e.g. 200 for OK, 404 for not found)
@@ -45,46 +46,73 @@
      console.log(response, status) // {<JSON text>} 200
      console.log(
       'here is the JSON response of my favorites tab')
-     console.log(JSON.parse(response)) // >> Object {}
-     let json_data = JSON.parse(response)
-     json_data.projects.forEach(myFunction)
-     // Add the first project's UUID to the text of an element with ID 'output'
+     document.getElementById("username").innerHTML =
+      JSON.parse(response).nickname;
      
-     function myFunction(item, index) {
-      if (index == 0) {
-       if (index == 0) {
-        document.write(
-         '<table style="margin-left: auto; margin-right: auto;"><tr>'
-        )
-       }
-       if (index == json_data.projects.length) {
-        document.write("</table>")
-       }
-      }
-      if (index % 3 == 0) {
-       document.write("</tr><tr>")
-      }
-      const date = new Date(json_data.projects[index]
-       .correct_published_at);
-      document.write(
-       '<td><div style="border-radius:25px;background:#d3d3d3;padding:20px;width:350px;height:500;"><img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' +
-       json_data.projects[index].uuid +
-       '.png" alt="404" width="290px" style="display: block;margin-left: auto;margin-right: auto;"><div style="display: flex; justify-content: space-between;"><img src="https://i.ibb.co/C9G2RHT/2-B1-E2-D75-0984-4438-AD72-2-FB37-BF05-B68-removebg-preview.png" style="flex-basis: 10%;" width="50px" height="50px"><h3 style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px;">' +
-       json_data.projects[index].number_of_stars +
-       '</h3><img src="https://github.com/google/material-design-icons/blob/master/png/content/link/materialicons/48dp/2x/baseline_link_black_48dp.png?raw=true" style="flex-basis: 10%; padding-right: 30px;" width="50" height="50"><h2 style="flex-basis: 79%; font-family: arial, helvetica;">' +
-       json_data.projects[index].user.nickname +
-       '</h2></div><div style="display: flex; justify-content: space-between;"><img src="https://i.ibb.co/nQphh83/3-ECED8-EA-4-B1-C-4125-B6-C5-B2792-C3-D8-DE0-removebg-preview.png" style="flex-basis: 10%;" width="50px" height="50px"><h3 style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px;">' +
-       json_data.projects[index].plants +
-       '</h3><p style="flex-basis: 89%; font-family: arial, helvetica; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' +
-       json_data.projects[index].title +
-       '</p></div><div style="display: flex; justify-content: space-between;"> <img src="https://github.com/google/material-design-icons/blob/master/png/av/play_arrow/materialiconsoutlined/48dp/2x/outline_play_arrow_black_48dp.png?raw=true" style="flex-basis: 5%; padding-top:5px;" width="20" height="20"><p style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px; margin-top: 5px;">' +
-       json_data.projects[index].play_count +
-       '</p> <div style="flex-basis: 70%;"></div> <img src="https://github.com/google/material-design-icons/blob/master/png/action/history/materialicons/48dp/2x/baseline_history_black_48dp.png?raw=true" style="flex-basis: 5%; padding-top:5px;" width="20" height="20"><p style="flex-basis: 10%; font-size: 10px; font-family:helvetica,arial; padding-right:20px; margin-top: 5px;">' +
-       date.toDateString() + '</p></div></div></td>'
-      )
+     if (JSON.parse(response).remote_avatar_url ==
+      undefined) {
+      document.getElementById("pfp").src =
+       "https://awesome-e.github.io/hs-tools/images/webavatars/" +
+       JSON.parse(response).avatar_type + ".png";
+     } else {
+      document.getElementById("pfp").src = JSON.parse(
+       response).remote_avatar_url;
+     }
+     const inappbioholders = [2112483, 2809002]
+     const joinedAt = new Date(JSON.parse(response)
+      .created_at);
+     document.getElementById("joined").innerHTML =
+      "Joined " + joinedAt.toDateString();
+     var topplanter = document.getElementById(
+      "topplanter");
+     var inappbio = document.getElementById(
+      "inappbioholder");
+     if (JSON.parse(response).badges.top_planter ==
+      true) {
+      topplanter.style.visibility = 'visible';
+     }
+     if (inappbioholders.includes(userid) == true) {
+      inappbio.style.visibility = 'visible';
      }
     })
   </script>
-  <div id="output"></div>
+  <div style="background-color: #ffcc00;">
+   <img src="" id="pfp"
+    alt="oops there is no profile pic!"
+    style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px;"
+    width="15%" height="15%">
+   <table style="width:100%; text-align:center;">
+    <colgroup>
+     <col span="1" style="width: 15%;">
+     <col span="1" style="width: 70%;">
+     <col span="1" style="width: 15%;">
+    </colgroup>
+    <tr>
+     <td>
+      <img
+       src="https://i.ibb.co/pzJBQYD/C45508-DA-D746-4389-B17-C-6092-A4-AC0-F43.png"
+       alt="top planter" style="visibility:hidden;"
+       id="topplanter" width="100px" height="100px">
+     </td>
+     <td>
+      <h1 id="username"
+       style="text-align:center; font-family:helvetica,arial; font-size:40px;">
+      </h1>
+     </td>
+     <td>
+      <img
+       src="https://i.ibb.co/7Cmd9t1/68708-B0-C-5-A6-F-4-C43-B298-A42-E76-BCDEAC.png"
+       alt="app bio holder" style="visibility:hidden;"
+       id="inappbioholder" width="100px" height="100px">
+     </td>
+    </tr>
+   </table>
+   <p id="joined"
+    style="text-align:center; font-family:helvetica,arial; font-size:14px;">
+   </p>
+  </div>
+  <iframe src="https://0w0i4i.mimo.run/index.html">
+   Browser Not Competible
+  </iframe>
  </body>
 </html>
