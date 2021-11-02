@@ -8,6 +8,7 @@
   <script>
    let searchParams = new URLSearchParams(location.search);
    var userid = searchParams.get('id');
+   document.getElementById("hi").innerHTML = "bye";
    function makeRequest(method, url, useProxy,
     callback) {
     // Method in your case will always be "GET" (you aren't changing any data on the server)
@@ -75,7 +76,6 @@
       inappbio.style.visibility = 'visible';
      }
     })
-document.getElementById("hi").innerHTML = "bye";
   </script>
   <div style="background-color: #ffcc00;">
    <img src="" id="pfp"
