@@ -65,13 +65,13 @@
       }
       const date = new Date(json_data.projects[index]
        .correct_published_at);
-      var linktoproject = 'c.gethopscotch.com/p/' + json_data.projects[index].uuid;
+      var linktoproject = "navigator.clipboard.writeText('c.gethopscotch.com/p/" + json_data.projects[index].uuid + "')";
       document.write(
        '<td><div style="border-radius:25px;background:#d3d3d3;padding:20px;width:350px;height:500;"><a href="https://c.gethopscotch.com/p/' + json_data.projects[index].uuid + '" target="_blank"><img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' +
        json_data.projects[index].uuid +
        '.png" alt="404" width="290px" style="display: block;margin-left: auto;margin-right: auto;"></a><div style="display: flex; justify-content: space-between;"><img src="https://i.ibb.co/C9G2RHT/2-B1-E2-D75-0984-4438-AD72-2-FB37-BF05-B68-removebg-preview.png" style="flex-basis: 10%;" width="50px" height="50px"><h3 style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px;">' +
        json_data.projects[index].number_of_stars +
-       '</h3><img src="https://github.com/google/material-design-icons/blob/master/png/content/link/materialicons/48dp/2x/baseline_link_black_48dp.png?raw=true" onclick="navigator.clipboard.writeText(\'' + linktoproject + '\')" style="flex-basis: 10%; padding-right: 30px;" width="50" height="50"><h2 style="flex-basis: 79%; font-family: arial, helvetica; max-width:14ch; word-wrap: break-word;">' +
+       '</h3><img src="https://github.com/google/material-design-icons/blob/master/png/content/link/materialicons/48dp/2x/baseline_link_black_48dp.png?raw=true" onclick="' + linktoproject + '" style="flex-basis: 10%; padding-right: 30px;" width="50" height="50"><h2 style="flex-basis: 79%; font-family: arial, helvetica; max-width:14ch; word-wrap: break-word;">' +
        json_data.projects[index].user.nickname +
        '</h2></div><div style="display: flex; justify-content: space-between;"><img src="https://i.ibb.co/nQphh83/3-ECED8-EA-4-B1-C-4125-B6-C5-B2792-C3-D8-DE0-removebg-preview.png" style="flex-basis: 10%;" width="50px" height="50px"><h3 style="flex-basis: 10%; font-family:helvetica,arial; padding-right:20px;">' +
        json_data.projects[index].plants +
