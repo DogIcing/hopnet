@@ -1,8 +1,5 @@
 <!doctype html>
 <html>
- <head>
-  <title>Search Results</title>
- </head>
  <body>
   <script>
    let searchParams = new URLSearchParams(location
@@ -37,7 +34,7 @@
       if (index % 3 == 0) {
        if (index == 0) {
         document.write(
-         '<table width="100%"><colgroup><col style="width:10%; text-align:right;"><col style="width:80%; text-align:center;"><col style="width:10%; text-align:left;"></colgroup><tr><form action="https://dogicing.github.io/hopnet/search.html"><td><label style="font-family:helvetica,arial;" for="SearchFor">Search for:</label><br></td><td><input type="text" id="SearchFor"name="nickname" placeholder="username" size="110%"><br></td><td><input type="submit" value="Search"></td></form></tr></table><br><table><tr>'
+         '<title>Search Results</title><table width="100%"><colgroup><col style="width:10%; text-align:right;"><col style="width:80%; text-align:center;"><col style="width:10%; text-align:left;"></colgroup><tr><form action="https://dogicing.github.io/hopnet/search.html"><td><label style="font-family:helvetica,arial;" for="SearchFor">Search for:</label><br></td><td><input type="text" id="SearchFor"name="nickname" placeholder="username" size="110%"><br></td><td><input type="submit" value="Search"></td></form></tr></table><br><table><tr>'
         )
        }
        if (index != 0) {
