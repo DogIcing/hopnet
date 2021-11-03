@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+  <script>
+   let searchParams = new URLSearchParams(location
+    .search);
+   var nickname = searchParams.get('nickname');
+   
+   function makeRequest(method, url, useProxy,
+    callback) {
+    if (useProxy) url =
+     'https://api.allorigins.win/raw?url=' +
+     encodeURIComponent(url)
+    let xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.onload = xhr.onerror = function() {
+     callback(xhr.responseText, xhr.status)
+    }
+    xhr.send()
+   }
+   makeRequest('GET',
+    'https://community.gethopscotch.com/api/v2/users/search?nickname=' +
+    nickname + '&page=1',
+    true,
+    function(response, status) {
+     console.log(response, status) // {<JSON text>} 200
+     console.log(
+      'here is the JSON response of my favorites tab')
+     console.log(JSON.parse(response)) // >> Object {}
+     let json_data = JSON.parse(response)
+     json_data.users.forEach(myFunction)
+     // Add the first project's UUID to the text of an element with ID 'output'
+     function myFunction(item, index) {
+      if (index % 3 == 0) {
+       if (index == 0) {
+        document.write(
+         '<table width="100%"><colgroup><col style="width:10%; text-align:right;"><col style="width:80%; text-align:center;"><col style="width:10%; text-align:left;"></colgroup><tr><form action="https://dogicing.github.io/hopnet/docs/search.html"><td><label for="SearchFor">Search for:</label><br></td><td><input type="text" id="SearchFor"name="nickname" placeholder="username" size="110%"><br></td><td><input type="submit" value="Search"></td></form></tr></table><br><table><tr>'
+        )
+       }
+       if (index != 0) {
+        document.write("</tr><tr>")
+       }
+      }
+      document.write(
+       '<td><div style="background-color:#d3d3d3; font-family: helvetica,arial"><table><tr><td><a href="https://dogicing.github.io/hopnet/user?id=' +
+       json_data.users[index].id +
+       '"><img src="https://awesome-e.github.io/hs-tools/images/webavatars/' +
+       json_data.users[index].avatar_type +
+       '.png" alt="pfp" width="150" height="150"></a></td><td><a href="https://dogicing.github.io/hopnet/user?id=2112483" style="text-decoration:none; color:black; font-family: helvetica,arial; font-size:20px;"><p style="width: 18ch; word-wrap: break-word;">' +
+       json_data.users[index].nickname +
+       '</p></a></td></tr></table></div></td>'
+      )
+     }
+    })
+  </script>
+ </body>
+</html>
