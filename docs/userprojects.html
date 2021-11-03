@@ -65,7 +65,6 @@
       }
       const date = new Date(json_data.projects[index]
        .correct_published_at);
-      var linktoproject = "navigator.clipboard.writeText('c.gethopscotch.com/p/" + json_data.projects[index].uuid + "')";
       document.write(
        '<td><div style="border-radius:25px;background:#d3d3d3;padding:20px;width:350px;height:500;"><a href="https://c.gethopscotch.com/p/' + json_data.projects[index].uuid + '" target="_blank"><img src="https://s3.amazonaws.com/hopscotch-cover-images/production/' +
        json_data.projects[index].uuid +
