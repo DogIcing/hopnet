@@ -67,9 +67,8 @@
      var topplanter = document.getElementById(
       "topplanter");
     
-     const biosjson = '{ "2112483":{ "username_forum":"DogIcing" "username_app":"Dog Icing" "bio":"<h2>Hi! I\'m Dog Icing!</h2><p>I created this here thingy.</p>" } }'
-     if (biosjson.userid != undefined) {
-      document.getElementById("bioLink").innerHTML = biosjson.userid.username_app;
+     if (userid == 2112483) {
+      document.getElementById("bioLink").innerHTML = "hi";
      }
      if (JSON.parse(response).badges.top_planter ==
       true) {
