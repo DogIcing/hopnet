@@ -1,0 +1,136 @@
+                <!DOCTYPE html>
+        <html>
+         <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+         <style>
+          body {
+           font-family: Verdana, sans-serif;
+           margin: 0;
+          }
+         </style>
+         <body>
+          <table>
+           <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+           </colgroup>
+           <tbody>
+            <tr>
+             <td>
+              <img
+               src="https://dogicing.github.io/shop/assets/images/items/16E383A0-7EC3-4B7E-8E40-F5FDE868C1ED.png"
+               style="width:100%" alt="404">
+              <br>
+              <img
+               src="https://dogicing.github.io/shop/assets/images/items/63749292-29D0-4687-A594-971B0E9769A4.png"
+               style="width:100%" alt="404">
+              <br>
+              <img
+               src="https://dogicing.github.io/shop/assets/images/items/17654C56-2962-4B98-8BC2-5A0CDA0731A6.png"
+               style="width:100%" alt="404">
+              <br>
+              <img
+               src="https://dogicing.github.io/shop/assets/images/items/9B770C67-6E4D-45B3-8281-82FA81A200B6.png"
+               style="width:100%" alt="404">
+             </td>
+             <td colspan="4">
+              <span>
+               <h1>1 Portfolio on Hopnet</h1>
+               <p>&copy; by Dog Icing</p>
+              </span>
+              <h2 id="price" style="color:#add8e6">2.75
+               Balloons for 10</h2>
+              <p>Get a portfolio on Hopnet with your
+               projects.
+              </p>
+              <h3>Thumbnail</h3>
+              <p>With HS's API, we'll get the thumbnail
+               of
+               the
+               project and add it on with <b>Custom
+                Images</b>.
+              </p>
+              <hr>
+              <br>
+              <h3>Your logo</h3>
+              <p>We'll happily add your logo at the
+               bottom
+               of
+               the page, otherwise we can draw your
+               username
+               (default).</p>
+              <hr>
+              <br>
+              <h3>Linking</h3>
+              <p>Your project will to Hopnet, meaning
+               that
+               when
+               someone clicks the thumbnail, it'll open
+               the
+               project with the
+               new <b>Open Project</b> block.</p>
+              <hr>
+              <br>
+              <h3>Choose your projects</h3>
+              <p>Choose your "featured" projects or just
+               ask
+               us
+               to do it! We can grab your best projects,
+               most
+               planted projects.etc and all you need to
+               do
+               is
+               just say "yep those are ok" or "nah, can
+               you
+               pick some other ones".
+               <hr>
+               <br>
+               <h3>Be in charge</h3>
+               <p>Change your projects whenever you want
+                by
+                simply tagging <a
+                 href="https://forum.gethopscotch.com/u/dogicing">@DogIcing</a>
+                on the forum!</p>
+               <hr>
+               <br>
+               <h3>Options</h3>
+               <br>
+               <select id="ProjectAmount">
+                <option value="3">Three Projects
+                </option>
+                <option value="5">Five projects</option>
+                <option value="8">Eight Projects
+                </option>
+                <option value="10" selected>Ten Projects
+                </option>
+               </select>
+               
+               <button
+                onclick="getpriceprojectamount()">Update</button>
+               
+               <script>
+                function getpriceprojectamount() {
+                 var projectAmount = document
+                  .getElementById(
+                   "ProjectAmount").value;
+                 if (projectAmount == 3) {
+                  var price = "1.25 Balloons for 3";
+                 } else if (projectAmount == 5) {
+                  var price = "1.75 Balloons for 5";
+                 } else if (projectAmount == 8) {
+                  var price = "2.30 Balloons for 8";
+                 } else if (projectAmount == 10) {
+                  var price = "2.75 Balloons for 10";
+                 }
+                 document.getElementById("price")
+                  .innerHTML =
+                  price;
+                }
+               </script>
+               
+             </td>
+            </tr>
+           </tbody>
+          </table>
+         </body>
+        </html>
