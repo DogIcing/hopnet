@@ -8,6 +8,7 @@
   <script>
    let searchParams = new URLSearchParams(location.search);
    var userid = searchParams.get('id');
+   var page = searchParams.get('page');
    function makeRequest(method, url, useProxy,
     callback) {
     // Method in your case will always be "GET" (you aren't changing any data on the server)
@@ -74,7 +75,12 @@
      if (inappbioholders.includes(userid) == true) {
       inappbio.style.visibility = 'visible';
      }
+     if (page == "pub") {
        document.getElementById("hi").innerHTML = '<table width="100%"> <tr> <td style="width:49%; text-align:center; font-family: helvetica,arial; border-bottom:3px solid #32CD32"> Published </td> <td style="width:49%; text-align:center; font-family: helvetica,arial;"> <a href="https://dogicing.github.io/hopnet/user?id=2112483&page=fav" style="text-decoration:none;color:black;">Favourites</a> </td> </tr> </table><br><iframe src="/hopnet/userprojects?id=' + userid + '" style="width:100%; height:480px" frameBorder="0">Your browser is not competable</iframe>';
+     }
+    if (page == "fav") {
+       document.getElementById("hi").innerHTML = '<table width="100%"> <tr> <td style="width:49%; text-align:center; font-family: helvetica,arial;"> <a href="https://dogicing.github.io/hopnet/user?id=2112483&page=pub" style="text-decoration:none;color:black;">Published</a> </td> <td style="width:49%; text-align:center; font-family: helvetica,arial; border-bottom:3px solid #32CD32"> Favourites</td> </tr> </table><br><iframe src="/hopnet/userprojects?id=' + userid + '" style="width:100%; height:480px" frameBorder="0">Your browser is not competable</iframe>';
+     }
     })
   </script>
   <div style="background-color: #ffcc00;">
