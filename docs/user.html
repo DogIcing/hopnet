@@ -7,7 +7,10 @@
   
   <script>
    let searchParams = new URLSearchParams(location.search);
-   var userid = searchParams.get('id');
+   let userid = searchParams.get('id');
+   if (userid == 2112483) {
+      document.getElementById("bioLink").innerHTML = "hi";
+     }
    var page = searchParams.get('page');
    function makeRequest(method, url, useProxy,
     callback) {
@@ -59,7 +62,6 @@
       document.getElementById("pfp").src = JSON.parse(
        response).remote_avatar_url;
      }
-     const inappbioholders = [2112483, 2809002]
      const joinedAt = new Date(JSON.parse(response)
       .created_at);
      document.getElementById("joined").innerHTML =
@@ -67,9 +69,6 @@
      var topplanter = document.getElementById(
       "topplanter");
     
-     if (JSON.parse(response).nickname == "Dog Icing") {
-      document.getElementById("bioLink").innerHTML = "hi";
-     }
      if (JSON.parse(response).badges.top_planter ==
       true) {
       topplanter.style.visibility = 'visible';
