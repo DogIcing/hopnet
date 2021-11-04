@@ -66,15 +66,16 @@
       "Joined " + joinedAt.toDateString();
      var topplanter = document.getElementById(
       "topplanter");
-     var inappbio = document.getElementById(
-      "inappbioholder");
+    
+     const biosjson = '{ "2112483":{ "username_forum":"DogIcing" "username_app":"Dog Icing" "bio":"<h2>Hi! I\'m Dog Icing!</h2><p>I created this here thingy.</p>" } }'
+     if (biosjson.userid != undefined) {
+      document.getElementById("bioLink").innerHTML = biosjson.userid.username_app;
+     }
      if (JSON.parse(response).badges.top_planter ==
       true) {
       topplanter.style.visibility = 'visible';
      }
-     if (inappbioholders.includes(userid) == true) {
-      inappbio.style.visibility = 'visible';
-     }
+     
      if (page != "fav") {
        document.getElementById("hi").innerHTML = '<table width="100%"> <tr> <td style="width:49%; text-align:center; font-family: helvetica,arial; border-bottom:3px solid #32CD32"> Published </td> <td style="width:49%; text-align:center; font-family: helvetica,arial;"> <a href="https://dogicing.github.io/hopnet/user?id=' + userid + '&page=fav" style="text-decoration:none;color:black;">Favourites</a> </td> </tr> </table><br><iframe src="/hopnet/userprojects/userprojects_published?id=' + userid + '" style="width:100%; height:480px" frameBorder="0">Your browser is not competable</iframe>';
      }
@@ -107,10 +108,7 @@
       </h1>
      </td>
      <td>
-      <img
-       src="https://i.ibb.co/7Cmd9t1/68708-B0-C-5-A6-F-4-C43-B298-A42-E76-BCDEAC.png"
-       alt="app bio holder" style="visibility:visible;"
-       id="inappbioholder" width="100px" height="100px">
+      <div id="bioLink"></div>
      </td>
     </tr>
    </table>
