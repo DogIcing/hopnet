@@ -67,7 +67,7 @@
      var topplanter = document.getElementById(
       "topplanter");
     
-     if (userid == 2112483) {
+     if (JSON.parse(response).nickname == "Dog Icing") {
       document.getElementById("bioLink").innerHTML = "hi";
      }
      if (JSON.parse(response).badges.top_planter ==
@@ -107,7 +107,7 @@
       </h1>
      </td>
      <td>
-      <div id="bioLink"></div>
+      <p id="bioLink"></p>
      </td>
     </tr>
    </table>
