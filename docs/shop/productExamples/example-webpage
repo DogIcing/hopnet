@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+  <h1>Hi I'm Dog Icing</h1>
+  <p>This is a webpage <b>THAT IS UNLIMITED</b> with
+   <b>FULL</b> linking
+   functionalities</p>
+  <br>
+  <h2 style="font-family:cursive,arial;">Hello</h2>
+  <h2 style="font-family:fantasy,arial;">Hello</h2>
+  <a href="AnotherPage"
+   style="font-family:arial; color:black; text-decoration:none;">LINK</a>
+ </body>
+</html>
