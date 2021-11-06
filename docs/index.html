@@ -43,6 +43,9 @@
 .counter {
   background-color: #00ffbf;
 }
+  .search {
+  background-color: #00ffbf;
+}
   
 body {
   font-family: "Lato", sans-serif;
@@ -155,17 +158,17 @@ onclick="openNav()">&#9776; menu</span>
 </td>
 </tr>
 </table>
-  
- ​<fieldset>
+  <div id="search">
+ <fieldset>
    <h2 class="title">Search for users</h2>
-   ​
+   
    <input type="text" id="myInput"
     onkeyup="myFunction()"
     placeholder="Search for users.."
     title="type in a username" style="width:98%;"
     class="usernameIn">
    <hr>
-   ​
+   
    <ul id="myUL">
     <li><a
       href="https://dogicing.github.io/hopnet/user?id=6317860">AE
@@ -214,6 +217,7 @@ onclick="openNav()">&#9776; menu</span>
     </li>
    </ul>
   </fieldset>
+  </div>
   <script>
    function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
