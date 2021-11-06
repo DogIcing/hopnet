@@ -5,7 +5,29 @@
   <meta name="google-site-verification" content="Ldrx8oWqL1YvomN3NXlbC-eEPq_tztA1x21uPbl9py0" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-  
+     .title {
+    font-family: helvetica, arial;
+   }
+   
+   .usernameIn {
+    align: center;
+   }
+   
+   legend {
+    text-align: center;
+    align: center;
+   }
+   
+   ul {
+    font-family: helvetica, arial;
+    list-style-type: none;
+    text-align: center;
+   }
+   
+   ul a {
+    text-decoration: none;
+    color: black;
+   }
   
   .triangle {
     width: window.innerwidth;
@@ -134,7 +156,82 @@ onclick="openNav()">&#9776; menu</span>
 </tr>
 </table>
   
-  
+ ​<fieldset>
+   <h2 class="title">Search for users</h2>
+   ​
+   <input type="text" id="myInput"
+    onkeyup="myFunction()"
+    placeholder="Search for users.."
+    title="type in a username" style="width:98%;"
+    class="usernameIn">
+   <hr>
+   ​
+   <ul id="myUL">
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6317860">AE
+      Creations</a></li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6013449">AwesomeGirl25*</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6094741">BG
+      Studios</a></li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=2809002">cool12317282728</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=5901643">Creation
+      Productions</a></li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6011082">DolphinGirl7</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6102711">Infinity</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=4906285">Kaila808</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=5003635">Otato</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6496323">O_O</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6083407">Santa998</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6025958">Slothy</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=5195779">The
+      Wild Fox</a></li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=6080308">Unamed-Account</a>
+    </li>
+    <li><a
+      href="https://dogicing.github.io/hopnet/user?id=5566942">Willowmoon</a>
+    </li>
+   </ul>
+  </fieldset>
+  <script>
+   function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+     a = li[i].getElementsByTagName("a")[0];
+     txtValue = a.textContent || a.innerText;
+     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+     } else {
+      li[i].style.display = "none";
+     }
+    }
+   }
+  </script>  
   
   
   
