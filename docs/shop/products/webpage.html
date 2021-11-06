@@ -1,0 +1,73 @@
+                <!DOCTYPE html>
+        <html>
+         <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+         <style>
+          body {
+           font-family: Verdana, sans-serif;
+           margin: 0;
+          }
+         </style>
+         <body>
+          <table>
+           <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+           </colgroup>
+           <tbody>
+            <tr>
+             <td>
+              <img
+               src="https://github.com/DogIcing/hopnet/raw/main/docs/shop/products/D42138C7-DFE3-4DE1-B468-6AA0061873E4.jpeg"
+               style="width:100%" alt="404">
+             </td>
+             <td colspan="4">
+              <span>
+               <h1>Webpage(s) as your bio</h1>
+              </span>
+              <h2 id="price" style="color:#add8e6">3.20 Balloons for 4</h2>
+              <br>
+               <h3>Use unlimited webpages as your bio</h3>
+               <p>Web bios are free but having your own webpage has no limit</p>
+               <br>
+               <h3>Options</h3>
+               <br>
+               <select id="TagAmount">
+                <option value="1">One page
+                </option>
+                <option value="2">Two pages</option>
+                <option value="3">Three pages
+                </option>
+                <option value="5" selected>Four pages
+                </option>
+               </select>
+               
+               <button
+                onclick="getpriceprojectamount()">Update</button>
+               
+               <script>
+                function getpriceprojectamount() {
+                 var tagamt = document
+                  .getElementById(
+                   "TagAmount").value;
+                 if (tagamt == 1) {
+                  var price = "1 Balloons for 1";
+                 } else if (tagamt == 2) {
+                  var price = "1.90 Balloons for 2";
+                 } else if (tagamt == 3) {
+                  var price = "2.70 Balloons for 3";
+                 } else if (tagamt == 5) {
+                  var price = "3.20 Balloons for 4";
+                 }
+                 document.getElementById("price")
+                  .innerHTML =
+                  price;
+                }
+               </script>
+               
+             </td>
+            </tr>
+           </tbody>
+          </table>
+         </body>
+        </html>
