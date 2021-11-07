@@ -1,0 +1,72 @@
+                <!DOCTYPE html>
+        <html>
+         <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+         <style>
+          body {
+           font-family: Verdana, sans-serif;
+           margin: 0;
+          }
+         </style>
+         <body>
+          <table>
+           <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+           </colgroup>
+           <tbody>
+            <tr>
+             <td>
+              <img
+               src="https://github.com/DogIcing/hopnet/raw/main/docs/shop/products/805876CF-781D-4C28-A43E-25189330F7C2.jpeg"
+               style="width:100%" alt="404">
+             </td>
+             <td colspan="4">
+              <span>
+               <h1>Better ranking on the main page search</h1>
+              </span>
+              <h2 id="price" style="color:#add8e6">2 balloons to get at the top of the list</h2>
+              <br>
+               <h3></h3>
+               <p>Get more clicks to your webpage. May come with free click count.</p>
+               <br>
+               <h3>Options</h3>
+               <br>
+               <select id="Place">
+                <option value="top" selected>Top of the list until someone overtakes you buy buying this
+                </option>
+                <option value="1">Jump 1 place up</option>
+                <option value="2">Jump 2 places up
+                </option>
+                <option value="5">Jump 5 places up
+                </option>
+               </select>
+               <button
+                onclick="getpriceprojectamount()">Update</button>
+                              <h2>Note to buyers: you may be overtaken by whoever buys this after you buy it. By all means you can purchase this again to overtake them. Tag <a href="https://forum.gethopscotch.com/u/DogIcing">@DogIcing</a> on the forum if you have any questions.</h2>
+               <script>
+                function getpriceprojectamount() {
+                 var place = document
+                  .getElementById(
+                   "Place").value;
+                 if (place == "top") {
+                  var price = "2 Balloons to jump to the top";
+                 } else if (tagamt == 1) {
+                  var price = "0.35 Balloons to jump one place";
+                 } else if (tagamt == 2) {
+                  var price = "0.60 Balloons to jump two places";
+                 } else if (tagamt == 5) {
+                  var price = "1.50 Balloons to jump five places";
+                 }
+                 document.getElementById("price")
+                  .innerHTML =
+                  price;
+                }
+               </script>
+               
+             </td>
+            </tr>
+           </tbody>
+          </table>
+         </body>
+        </html>
