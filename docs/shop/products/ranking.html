@@ -33,7 +33,7 @@
                <h3>Options</h3>
                <br>
                <select id="Place">
-                <option value="1100" selected>Top of the list until someone overtakes you buy buying this
+                <option value="top" selected>Top of the list until someone overtakes you buy buying this
                 </option>
                 <option value="1">Jump 1 place up</option>
                 <option value="2">Jump 2 places up
@@ -49,13 +49,13 @@
                  var place = document
                   .getElementById(
                    "Place").value;
-                 if (place == 1100) {
-                  var price = "2 Balloons to jump to the top";
-                 } else if (tagamt == 1) {
+                 if (place == "top") {
+                  var price = "2 Balloons to jump to the top of the list until someone overtakes you";
+                 } else if (place == 1) {
                   var price = "0.35 Balloons to jump one place";
-                 } else if (tagamt == 2) {
+                 } else if (place == 2) {
                   var price = "0.60 Balloons to jump two places";
-                 } else if (tagamt == 5) {
+                 } else if (place == 5) {
                   var price = "1.50 Balloons to jump five places";
                  }
                  document.getElementById("price")
