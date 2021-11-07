@@ -7,6 +7,28 @@
            font-family: Verdana, sans-serif;
            margin: 0;
           }
+           ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
          </style>
          <body>
           <table>
@@ -17,6 +39,11 @@
            <tbody>
             <tr>
              <td>
+                              <ul class="breadcrumb">
+  <li><a href="https://dogicing.github.io/hopnet">Home</a></li>
+  <li><a href="https://dogicing.github.io/hopnet/shop/products">Products</a></li>
+  <li>This</li>
+</ul>
               <img
                src="https://github.com/DogIcing/hopnet/raw/main/docs/shop/products/03A745C4-706E-4155-9B55-C0652338A883.jpeg"
                style="width:100%" alt="404">
