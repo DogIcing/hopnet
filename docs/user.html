@@ -73,6 +73,12 @@
      if (JSON.parse(response).nickname == "Dog Icing") {
       document.getElementById("BioDisplay").innerHTML = "<h2 style='text-align:center; font-family:helvetica,arial'>Hi I\'m Dog Icing</h2><br>I created this here thingy. Please buy some stuff from the hopnet shop or from my personal shop. :)"
      }
+    if (JSON.parse(response).nickname == "Otato") {
+      document.getElementById("BioDisplay").innerHTML = "My pronouns are he/him, and I have been living in this Earth for 1.26 decades.<br>I’m known for my work in progress project, Bounty Hunt, and other small but fun projects. I’ve been officially playing Hopscotch for 2 years, and made my current account 3 years ago.<br>Currently temporarily inactive on the app as of Nov 8 2021"
+     }
+    if (JSON.parse(response).nickname == "Tb23") {
+      document.getElementById("BioDisplay").innerHTML = "Hello there. I am Tb23 on the app. My pronouns are he/him and I do art as a hobby.<br>I’m not really known for anything yet because I just came back after a long break about 4 weeks ago. That will soon change… lol<br>Im currently working on a custom art project that will hopefully be published around the end of November or beginning of December. I am very active as I have nothing better to do."
+     }
      if (page != "fav") {
        document.getElementById("hi").innerHTML = '<div style="width:100%;text-align: center; background-color:#d3d3d3;"><a href="https://dogicing.github.io/hopnet" style="color:black; font-size: 30px; text-align:center; font-family:helvetica,arial; text-decoration:none;">Home</a></div><table width="100%"> <tr> <td style="width:49%; text-align:center; font-family: helvetica,arial; border-bottom:3px solid #32CD32"> Published </td> <td style="width:49%; text-align:center; font-family: helvetica,arial;"> <a href="https://dogicing.github.io/hopnet/user?id=' + userid + '&page=fav" style="text-decoration:none;color:black;">Favourites</a> </td> </tr> </table><br><iframe src="/hopnet/userprojects/userprojects_published?id=' + userid + '" style="width:100%; height:480px" frameBorder="0">Your browser is not competable</iframe>';
      }
