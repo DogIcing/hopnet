@@ -71,7 +71,7 @@
       topplanter.style.visibility = 'visible';
      }
      if (JSON.parse(response).nickname == "Dog Icing") {
-      document.getElementById("BioDisplay").innerHTML = "<h2 style='text-align:center; font-family:helvetica,arial'>Hi I\'m Dog Icing</h2><br>I created this here thingy. Please buy some stuff from the hopnet shop or from my personal shop. :)"
+      document.getElementById("BioDisplay").innerHTML = "<h2 style='text-align:center; font-family:helvetica,arial'>:hi: I\'m Dog Icing</h2><br>I created this here thingy. Please buy some stuff from the hopnet shop or from my personal shop. :)"
      }
     if (JSON.parse(response).nickname == "Otato") {
       document.getElementById("BioDisplay").innerHTML = "My pronouns are he/him, and I have been living in this Earth for 1.26 decades.<br>I’m known for my work in progress project, Bounty Hunt, and other small but fun projects. I’ve been officially playing Hopscotch for 2 years, and made my current account 3 years ago.<br>Currently temporarily inactive on the app as of Nov 8 2021"
@@ -82,12 +82,18 @@
     if (JSON.parse(response).nickname == "DolphinBlast") {
       document.getElementById("BioDisplay").innerHTML = "Hey, I’m DolphinBlast, or Dolphin_Blast on the forum!<br>My pronouns are she/her and he/him. And if you’re wondering what time you should reach out to me, my time zone is CST/CDT.<br>I’m best known for my “What Hopscotcher Are You?” quiz that I made a while ago.<br>I’ve been a Welcome Team Member since September 2021 :))"
      }
-     if (page != "fav") {
+    // icons
+    
+    document.getElementById("BioDisplay").innerHTML = document.getElementById("BioDisplay").innerHTML.replace(":bye:", "<img src='https://dogicing.github.io/hopnet/assets/6DDF45BF-6636-41BD-A647-277E76E4FC51.jpeg' width='15' heigt='15' alt=':bye:'>");;
+    document.getElementById("BioDisplay").innerHTML = document.getElementById("BioDisplay").innerHTML.replace(":hi:", "<img src='https://dogicing.github.io/hopnet/assets/F9B2E696-4F4F-4801-A7BD-C9476AA33C0C.jpeg' width='15' heigt='15' alt=':hi:'>");;
+     // end icons
+    if (page != "fav") {
        document.getElementById("hi").innerHTML = '<div style="width:100%;text-align: center; background-color:#d3d3d3;"><a href="https://dogicing.github.io/hopnet" style="color:black; font-size: 30px; text-align:center; font-family:helvetica,arial; text-decoration:none;">Home</a></div><table width="100%"> <tr> <td style="width:49%; text-align:center; font-family: helvetica,arial; border-bottom:3px solid #32CD32"> Published </td> <td style="width:49%; text-align:center; font-family: helvetica,arial;"> <a href="https://dogicing.github.io/hopnet/user?id=' + userid + '&page=fav" style="text-decoration:none;color:black;">Favourites</a> </td> </tr> </table><br><iframe src="/hopnet/userprojects/userprojects_published?id=' + userid + '" style="width:100%; height:480px" frameBorder="0">Your browser is not competable</iframe>';
      }
     if (page == "fav") {
        document.getElementById("hi").innerHTML = '<div style="width:100%;text-align: center; background-color:#d3d3d3;"><a href="https://dogicing.github.io/hopnet" style="color:black; font-size: 30px; text-align:center; font-family:helvetica,arial; text-decoration:none;">Home</a></div><table width="100%"> <tr> <td style="width:49%; text-align:center; font-family: helvetica,arial;"> <a href="https://dogicing.github.io/hopnet/user?id=' + userid + '" style="text-decoration:none;color:black;">Published</a> </td> <td style="width:49%; text-align:center; font-family: helvetica,arial; border-bottom:3px solid #32CD32"> Favourites</td> </tr> </table><br><iframe src="/hopnet/userprojects/userprojects_favourites?id=' + userid + '" style="width:100%; height:480px" frameBorder="0">Your browser is not competable</iframe>';
      }
+   
     })
    
   </script>
